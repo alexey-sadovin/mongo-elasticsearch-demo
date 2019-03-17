@@ -41,7 +41,7 @@ class SearchDataProvider {
   }
 
   /**
-   * @return {Promise<Object[]>}
+   * @return {Promise<Object>}
    */
   async search() {
     const response = await this.elasticDriver.search({
