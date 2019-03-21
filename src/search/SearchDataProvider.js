@@ -3,6 +3,12 @@ const {elasticIndex} = require('./../../core/config');
 
 const USERS_LIMIT = 20;
 const DEFAULT_CURSOR = 1;
+const SEARCH_FIELDS = Object.freeze([
+  'name',
+  'phone',
+  'email',
+  'nick'
+]);
 
 class SearchDataProvider {
 
@@ -33,7 +39,7 @@ class SearchDataProvider {
       query: {
         multi_match: {
           query: this.filter,
-          fields: ['name', 'phone', 'email', 'nick'],
+          fields: SEARCH_FIELDS,
           analyzer: 'autocomplete'
         }
       }
